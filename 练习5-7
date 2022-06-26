@@ -1,0 +1,39 @@
+本题要求实现一个判断素数的简单函数、以及利用该函数计算给定区间内素数和的函数。
+
+素数就是只能被1和自身整除的正整数。注意：1不是素数，2是素数。
+
+答案：
+int prime(int p) {
+int x=1,i;
+for(i=2;i<p;i++){
+   if (p % i == 0) {
+	x = 0;
+   }
+}
+if(p<=1){
+    x=0;
+   }
+return x;
+}
+
+int PrimeSum(int m, int n) {
+    int sum=0;
+ if (m < 2) {
+	m = 2;
+ }
+for (;m <= n;m++) {
+    int x = 0;
+    if(m==2){
+        x=0;
+    }
+	for (int i = 2;i < m;i++) {
+		if (m % i == 0) {
+			x = 1;
+		}
+	}
+     if (x == 0) {
+		sum = sum + m;
+	}
+}
+	return sum;
+}
